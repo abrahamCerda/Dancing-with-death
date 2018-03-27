@@ -198,6 +198,8 @@
         color:white;
         border: 1px solid white;
         border-radius: 5px;
+        -moz-transition: background-color .2s, transform .2s;
+        -webkit-transition: background-color .2s, transform .2s;
         transition: background-color .2s, transform .2s;
     }
 
@@ -261,6 +263,8 @@
         border-radius: 5px;
         border:0;
         outline:none;
+        -webkit-transition: background-color .2s, color .2s, text-transform .2s;
+        -moz-transition: background-color .2s, color .2s, text-transform .2s;
         transition: background-color .2s, color .2s, text-transform .2s;
         background-color: rgba(0,0,0,0.5);
         color: red;
@@ -274,13 +278,19 @@
     }
 
     .slide-fade-enter-active {
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
         transition: all .3s ease;
     }
     .slide-fade-leave-active {
+        -webkit-transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        -moz-transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
         transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
     .slide-fade-enter, .slide-fade-leave-to
         /* .slide-fade-leave-active below version 2.1.8 */ {
+        -webkit-transform: translateX(10px);
+        -moz-transform: translateX(10px);
         transform: translateX(10px);
         opacity: 0;
     }

@@ -268,13 +268,19 @@
     }
 
     .slide-fade-enter-active {
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
         transition: all .3s ease;
     }
     .slide-fade-leave-active {
+        -webkit-transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        -moz-transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
         transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
     .slide-fade-enter, .slide-fade-leave-to
         /* .slide-fade-leave-active below version 2.1.8 */ {
+        -webkit-transform: translateX(10px);
+        -moz-transform: translateX(10px);
         transform: translateX(10px);
         opacity: 0;
     }
