@@ -63940,7 +63940,7 @@ var moment = __webpack_require__(0);
                 //when we get the free hours, if no instructions and hours are shown
                 //we show the free hours
                 if (vm.showFreeHours === false && vm.showInstructions === false) {
-                    vm.showFreeHours = true;;
+                    vm.showFreeHours = true;
                 }
                 vm.showInstructions = false;
             }).catch(function (error) {

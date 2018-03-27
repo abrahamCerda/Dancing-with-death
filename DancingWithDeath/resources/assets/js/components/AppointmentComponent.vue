@@ -101,7 +101,7 @@
                         //when we get the free hours, if no instructions and hours are shown
                         //we show the free hours
                         if(vm.showFreeHours === false && vm.showInstructions === false){
-                            vm.showFreeHours= true;;
+                            vm.showFreeHours= true;
                         }
                         vm.showInstructions = false;
                     })
