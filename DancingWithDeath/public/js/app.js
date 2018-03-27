@@ -63916,7 +63916,7 @@ var moment = __webpack_require__(0);
         //this method is called when the user has clicked a date from the calendar
         //but the input behind doesn't had the new date value
         dateClicked: function dateClicked() {
-            console.log("Date clicked!!");
+            //console.log("Date clicked!!");
         },
 
         //this method is called when the value of the input has change
@@ -63933,14 +63933,14 @@ var moment = __webpack_require__(0);
             //We set the free hours, obtaining first the taken hours from the api
             //now we use the api
             axios.get('/appointments/' + this.selectedDate).then(function (response) {
-                console.log(response.data);
+                //console.log(response.data);
                 //if we get the response from the api
                 //we set the free hours
                 vm.setFreeHours(response.data);
                 //when we get the free hours, if no instructions and hours are shown
                 //we show the free hours
                 if (vm.showFreeHours === false && vm.showInstructions === false) {
-                    vm.showFreeHours = true;
+                    vm.showFreeHours = true;;
                 }
                 vm.showInstructions = false;
             }).catch(function (error) {
@@ -63996,8 +63996,8 @@ var moment = __webpack_require__(0);
                 var j = void 0;
                 var isFree = true;
                 for (j = 0; j < appointments.length; j++) {
-                    console.log("appointment time: ");
-                    console.log(appointments[j].time);
+                    //console.log("appointment time: ");
+                    //console.log(appointments[j].time);
                     //we pass the start time to 24 hrs format to compare
                     if (this.to24FormatString(hour) === appointments[j].time) {
                         isFree = false;
@@ -64009,8 +64009,8 @@ var moment = __webpack_require__(0);
                 //we add one hour to move to the next hour
                 startTimeAux = endTimeAux;
             }
-            console.log("Free hours: ");
-            console.log(this.freeHours);
+            //console.log("Free hours: ");
+            //console.log(this.freeHours);
         },
 
         displayHours: function displayHours(el) {
@@ -64054,7 +64054,7 @@ var moment = __webpack_require__(0);
 
     //when all the component is displayed
     mounted: function mounted() {
-        console.log('Component mounted.');
+        //console.log('Component mounted.');
     }
 });
 
@@ -64641,15 +64641,15 @@ var moment = __webpack_require__(0);
             var vm = this;
             //we have the selected date and hour
             //We pass the hour to 24 hours format
-            console.log("realTime:");
-            console.log(this.to24FormatString(this.selectedHour));
+            //console.log("realTime:");
+            //console.log(this.to24FormatString(this.selectedHour));
             axios.post('appointments', {
                 date: moment(this.selectedDate).format('YYYY-MM-DD'),
                 time: this.to24FormatString(this.selectedHour),
                 contact_email: this.inputMailValue
             }).then(function (response) {
                 //If we got the response
-                console.log(response);
+                //console.log(response);
                 __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()("Congrats!", response.data.message.toString(), "success");
                 //we inform the parent component that the appointment is scheduled
                 vm.$emit('appointmentScheduled');
@@ -64659,8 +64659,8 @@ var moment = __webpack_require__(0);
                 vm.inputMailValue = '';
             }).catch(function (errors) {
                 if (errors.response.status === 422) {
-                    console.log("Objeto response data: ");
-                    console.log(errors.response.data.errors);
+                    //console.log("Objeto response data: ");
+                    //console.log(errors.response.data.errors);
                     var error = void 0;
                     for (error in errors.response.data.errors) {
                         //we set the custom error

@@ -52,10 +52,10 @@
               //we use setTimeout to match the change of the value with the transition duration = 0.3s or 500ms
               setTimeout(function(){
                   if(this.freeHoursAmount !== 0){
-                      this.instructionMessage= "Please select one of the followings free hours on " + val +" to make your appointment with the Death:"
+                      this.instructionMessage= "Please select one of the followings free hours on " + val +" to make your appointment with the Death:";
                   }
                   else{
-                      this.instructionMessage= "There's no free hours on " + val +" to make your appointment with the Death. Please select another date."
+                      this.instructionMessage= "There's no free hours on " + val +" to make your appointment with the Death. Please select another date.";
                   }
                   this.showInputEmail= false;
               }, 300);
@@ -80,8 +80,6 @@
                 this.showInputEmail = true;
                 this.selectedHour = selectedHour;
                 this.selectedHourIndex = selectedHour.id;
-
-
             },
             //When the transition of the instruction message has ended
             showSecondStep: function (el) {
@@ -96,10 +94,10 @@
             otherDatePicked: function (el){
                 //We cgane the instructions message
                 if(this.freeHours.length !== 0){
-                    this.instructionMessage= "Please select one of the followings free hours on " +this.selectedDate +" to make your appointment with the Death:"
+                    this.instructionMessage= "Please select one of the followings free hours on " +this.selectedDate +" to make your appointment with the Death:";
                 }
                 else{
-                    this.instructionMessage= "There's no free hours on " + this.selectedDate +" to make your appointment with the Death. Please select another date."
+                    this.instructionMessage= "There's no free hours on " + this.selectedDate +" to make your appointment with the Death. Please select another date.";
                 }
                 //and we hide the input and button
                 this.showInputEmail=false;
@@ -109,8 +107,8 @@
                 let vm = this;
                 //we have the selected date and hour
                 //We pass the hour to 24 hours format
-                console.log("realTime:")
-                console.log(this.to24FormatString(this.selectedHour))
+                //console.log("realTime:");
+                //console.log(this.to24FormatString(this.selectedHour));
                 axios.post('appointments', {
                     date: moment(this.selectedDate).format('YYYY-MM-DD'),
                     time: this.to24FormatString(this.selectedHour),
@@ -118,19 +116,19 @@
                 })
                     .then(function (response) {
                         //If we got the response
-                        console.log(response);
+                        //console.log(response);
                         swal("Congrats!", response.data.message.toString(), "success");
                         //we inform the parent component that the appointment is scheduled
                         vm.$emit('appointmentScheduled');
                         //and we close the input and button
                         //and clean the input value
-                        vm.showInputEmail = false
-                        vm.inputMailValue = ''
+                        vm.showInputEmail = false;
+                        vm.inputMailValue = '';
                     })
                     .catch(function (errors) {
                         if(errors.response.status === 422){
-                            console.log("Objeto response data: ")
-                            console.log(errors.response.data.errors)
+                            //console.log("Objeto response data: ");
+                            //console.log(errors.response.data.errors);
                             let error;
                             for(error in errors.response.data.errors){
                                 //we set the custom error

@@ -77,7 +77,7 @@
             //this method is called when the user has clicked a date from the calendar
             //but the input behind doesn't had the new date value
             dateClicked (){
-                console.log("Date clicked!!");
+                //console.log("Date clicked!!");
             },
             //this method is called when the value of the input has change
             //here we got the new date
@@ -94,19 +94,19 @@
                 //now we use the api
                 axios.get('/appointments/' + this.selectedDate)
                     .then(function (response) {
-                        console.log(response.data);
+                        //console.log(response.data);
                         //if we get the response from the api
                         //we set the free hours
                         vm.setFreeHours(response.data);
                         //when we get the free hours, if no instructions and hours are shown
                         //we show the free hours
                         if(vm.showFreeHours === false && vm.showInstructions === false){
-                            vm.showFreeHours= true;
+                            vm.showFreeHours= true;;
                         }
                         vm.showInstructions = false;
                     })
                     .catch(function (error) {
-                        console.log(error)
+                        console.log(error);
                     })
             },
             //Method that calculate the free hours
@@ -139,18 +139,18 @@
                     //We set the period of the start time and end time
                     //with less than 2, it is from 9 amm to 11 am hours
                     if(i < 2){
-                        hour.startHour.period = 'am'
-                        hour.endHour.period = 'am'
+                        hour.startHour.period = 'am';
+                        hour.endHour.period = 'am';
                     }
                     //with i == 2 ==> startime 11 am to 12 pm hour
                     else if( i === 2){
-                        hour.startHour.period = 'am'
-                        hour.endHour.period = 'pm'
+                        hour.startHour.period = 'am';
+                        hour.endHour.period = 'pm';
                     }
                     //with i equal or bigger than 3, it is from 12 pm to 6pm hours
                     else if(i >= 3){
-                        hour.startHour.period = 'pm'
-                        hour.endHour.period = 'pm'
+                        hour.startHour.period = 'pm';
+                        hour.endHour.period = 'pm';
                     }
                     //If the created hour object doesn't have the same startTime
                     //with a fetched existing hour from the api
@@ -158,8 +158,8 @@
                     let j;
                     let isFree = true;
                     for(j = 0; j < appointments.length; j++){
-                        console.log("appointment time: ")
-                        console.log(appointments[j].time)
+                        //console.log("appointment time: ");
+                        //console.log(appointments[j].time);
                         //we pass the start time to 24 hrs format to compare
                         if(this.to24FormatString(hour) === appointments[j].time){
                             isFree = false;
@@ -171,8 +171,8 @@
                     //we add one hour to move to the next hour
                     startTimeAux=endTimeAux;
                 }
-                console.log("Free hours: ")
-                console.log(this.freeHours);
+                //console.log("Free hours: ");
+                //console.log(this.freeHours);
             },
             displayHours: function (el) {
                 this.showFreeHours= true;
@@ -209,14 +209,14 @@
         //before the view is rendered
         created(){
             //we initialize the input with the today date
-            let today = moment().format('YYYY-MM-DD')
+            let today = moment().format('YYYY-MM-DD');
             this.selectedDate = today;
             //and we set the min date from today
             this.minDate = today;
         },
         //when all the component is displayed
         mounted() {
-            console.log('Component mounted.')
+            //console.log('Component mounted.');
         }
     }
 </script>
