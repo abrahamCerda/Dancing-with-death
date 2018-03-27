@@ -51,7 +51,7 @@
           selectedDate: function(val){
               //we use setTimeout to match the change of the value with the transition duration = 0.3s or 500ms
               setTimeout(function(){
-                  if(this.freeHours.length !== 0){
+                  if(this.freeHoursAmount !== 0){
                       this.instructionMessage= "Please select one of the followings free hours on " + val +" to make your appointment with the Death:"
                   }
                   else{
@@ -60,6 +60,11 @@
                   this.showInputEmail= false;
               }, 300);
           }
+        },
+        computed: {
+            freeHoursAmount() {
+                return this.freeHours.length;
+            }
         },
         methods: {
             hourSelected: function(selectedHour) {

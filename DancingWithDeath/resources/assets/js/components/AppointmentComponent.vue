@@ -30,7 +30,6 @@
             <hours
                     v-bind:freeHours="freeHours"
                     v-bind:showFreeHours="showFreeHours"
-                    v-bind:showCustomError="showCustomError"
                     v-bind:selectedDate="selectedDate"
                     v-on:appointmentScheduled="appointmentScheduled">
 
